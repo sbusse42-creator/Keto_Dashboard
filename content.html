@@ -30,187 +30,99 @@
   --radius: 8px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  min-height: 100vh;
-}
+body { background: var(--bg); color: var(--text); font-family: 'Lato', sans-serif; font-size: 14px; min-height: 100vh; }
 
 /* ─── HEADER ─── */
 .header {
-  background: var(--header-bg);
-  color: #fff;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: var(--shadow-md);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: var(--header-bg); color: #fff;
+  padding: 14px 20px; display: flex; align-items: center; gap: 16px;
+  box-shadow: var(--shadow-md); position: sticky; top: 0; z-index: 100;
 }
-.header h1 { font-size: 18px; font-weight: 700; line-height: 1.2; }
+.header-title { font-size: 18px; font-weight: 700; line-height: 1.2; }
 .header-sub { font-size: 11px; opacity: 0.7; font-weight: 300; margin-top: 2px; }
 .header-right { margin-left: auto; white-space: nowrap; font-size: 12px; opacity: 0.85; }
 .header-right strong { font-size: 16px; font-weight: 700; }
 
 /* ─── TAUGLICHKEIT TABS ─── */
 .taug-bar {
-  background: var(--white);
-  border-bottom: 2px solid var(--border);
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
+  background: var(--white); border-bottom: 2px solid var(--border);
+  padding: 8px 16px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
 }
 .taug-label { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; margin-right: 2px; }
 .taug-btn {
-  padding: 6px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: 20px;
-  font-size: 12px; font-weight: 700;
-  cursor: pointer; background: var(--white); color: var(--dim);
+  padding: 6px 14px; border: 1.5px solid var(--border); border-radius: 20px;
+  font-size: 12px; font-weight: 700; cursor: pointer; background: var(--white); color: var(--dim);
   transition: all 0.12s; white-space: nowrap;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; min-height: 36px;
 }
 .taug-btn:active { opacity: 0.75; }
 .tb-active-all  { background: var(--text);  border-color: var(--text);  color: #fff !important; }
 .tb-active-voll { background: var(--green); border-color: var(--green); color: #fff !important; }
 .tb-active-bed  { background: var(--gold);  border-color: var(--gold);  color: #fff !important; }
 .reset-btn {
-  margin-left: auto;
-  padding: 6px 14px;
-  border: 1px solid var(--border); border-radius: 6px;
-  background: var(--white); color: var(--dim);
-  font-size: 12px; font-weight: 700; cursor: pointer;
-  transition: all 0.12s;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+  margin-left: auto; padding: 6px 14px; border: 1px solid var(--border); border-radius: 6px;
+  background: var(--white); color: var(--dim); font-size: 12px; font-weight: 700; cursor: pointer;
+  transition: all 0.12s; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
 .reset-btn:active { background: var(--bg); }
 
 /* ─── CATEGORY BUTTONS ─── */
 .cat-bar {
-  background: #f0f3ef;
-  border-bottom: 1px solid var(--border);
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  background: #f0f3ef; border-bottom: 1px solid var(--border);
+  padding: 8px 16px; display: flex; align-items: center; gap: 6px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
 .cat-bar::-webkit-scrollbar { display: none; }
 .cat-label { font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; flex-shrink: 0; margin-right: 2px; }
 .cat-btn {
-  padding: 5px 12px;
-  border: 1px solid var(--border); border-radius: 4px;
-  font-size: 11px; font-weight: 400;
-  cursor: pointer; background: var(--white); color: var(--dim);
+  padding: 5px 12px; border: 1px solid var(--border); border-radius: 4px;
+  font-size: 11px; font-weight: 400; cursor: pointer; background: var(--white); color: var(--dim);
   transition: all 0.10s; white-space: nowrap; flex-shrink: 0;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  min-height: 32px;
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; min-height: 32px;
 }
 .cat-btn:active { opacity: 0.7; }
 .cat-active { background: var(--green-bg); border-color: var(--green); color: var(--green); font-weight: 700; }
 
 /* ─── LAYOUT ─── */
-.page-body {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-}
+.page-body { display: flex; align-items: flex-start; }
 
-/* ─── FILTER SIDEBAR (desktop) ─── */
+/* ─── DESKTOP FILTER SIDEBAR ─── */
 .filter-panel {
-  width: 200px;
-  flex-shrink: 0;
-  background: var(--white);
-  border-right: 1px solid var(--border);
-  padding: 14px 14px 20px;
-  position: sticky;
-  top: 110px; /* below header+taug */
-  max-height: calc(100vh - 110px);
-  overflow-y: auto;
+  width: 200px; flex-shrink: 0; background: var(--white); border-right: 1px solid var(--border);
+  padding: 14px 14px 20px; position: sticky; top: 112px; max-height: calc(100vh - 112px); overflow-y: auto;
 }
-.filter-panel-title {
-  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 12px;
-}
-.fp-row {
-  margin-bottom: 10px;
-}
-.fp-label {
-  display: block;
-  font-size: 10px; color: var(--dim); font-weight: 700;
-  letter-spacing: 0.5px; margin-bottom: 3px;
-}
+.filter-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.fp-row { margin-bottom: 10px; }
+.fp-label { display: block; font-size: 10px; color: var(--dim); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 3px; }
 .fp-input, .fp-select {
-  width: 100%;
-  border: 1px solid var(--input-border);
-  border-radius: 4px;
-  padding: 7px 9px;
-  font-size: 13px;
-  font-family: 'Lato', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.12s;
-  -webkit-appearance: none;
-  min-height: 38px;
+  width: 100%; border: 1px solid var(--input-border); border-radius: 4px;
+  padding: 7px 9px; font-size: 13px; font-family: 'Lato', sans-serif;
+  background: var(--white); color: var(--text); outline: none; transition: border-color 0.12s;
+  -webkit-appearance: none; min-height: 38px;
 }
 .fp-input:focus, .fp-select:focus { border-color: var(--input-focus); box-shadow: 0 0 0 2px rgba(45,122,58,0.12); }
 .fp-input.active, .fp-select.active { border-color: var(--input-focus); background: var(--green-bg); }
 .fp-input[type=number] { font-family: 'Source Code Pro', monospace; }
 
-/* ─── MOBILE FILTER (horizontal stacked) ─── */
+/* ─── MOBILE FILTER ─── */
 .filter-mobile {
-  display: none;
-  background: var(--white);
-  border-bottom: 2px solid var(--border);
-  padding: 10px 14px;
+  display: none; background: var(--white); border-bottom: 2px solid var(--border); padding: 10px 14px;
 }
-.filter-mobile-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
+.filter-mobile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .filter-mobile-grid .fp-row { margin-bottom: 0; }
 .filter-mobile-grid .fp-row:first-child { grid-column: 1 / -1; }
 
-/* ─── CONTENT AREA ─── */
-.content {
-  flex: 1;
-  min-width: 0;
-  padding: 16px;
-}
+/* ─── CONTENT ─── */
+.content { flex: 1; min-width: 0; padding: 16px; }
 
 /* ─── DESKTOP TABLE ─── */
-.table-wrap {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
+.table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
 .table-scroll { overflow-x: auto; }
-
 table { width: 100%; border-collapse: collapse; }
 thead { position: sticky; top: 0; z-index: 5; }
 thead tr.col-label th {
-  background: var(--header-bg); color: #fff;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
-  padding: 9px 10px; text-align: right;
-  cursor: pointer; user-select: none; white-space: nowrap;
-  transition: background 0.1s;
+  background: var(--header-bg); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+  padding: 9px 10px; text-align: right; cursor: pointer; user-select: none; white-space: nowrap; transition: background 0.1s;
 }
 thead tr.col-label th:first-child { text-align: left; }
 thead tr.col-label th:nth-child(2) { text-align: left; min-width: 140px; }
@@ -218,238 +130,130 @@ thead tr.col-label th:hover { background: #246231; }
 thead tr.col-label th.sorted { background: #1a4d26; }
 .sort-icon { margin-left: 3px; font-size: 9px; opacity: 0.6; }
 th.sorted .sort-icon { opacity: 1; }
-
 tr.group-sep td {
-  background: #f0f2ef; color: var(--dim);
-  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-  padding: 7px 10px 5px;
-  border-top: 2px solid var(--border);
-  border-bottom: 1px solid var(--border-light);
+  background: #f0f2ef; color: var(--dim); font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; padding: 7px 10px 5px;
+  border-top: 2px solid var(--border); border-bottom: 1px solid var(--border-light);
 }
 tr.group-sep:first-child td { border-top: none; }
-
 tbody tr.data-row { border-bottom: 1px solid var(--border-light); transition: background 0.08s; }
 tbody tr.data-row:hover { background: var(--row-hover); }
 tbody tr.data-row:nth-child(even) { background: var(--row-alt); }
 tbody tr.data-row:nth-child(even):hover { background: var(--row-hover); }
-
-tbody td {
-  padding: 7px 10px; text-align: right;
-  font-family: 'Source Code Pro', monospace;
-  font-size: 12px; color: var(--dim); white-space: nowrap;
-}
-tbody td:first-child {
-  text-align: left; font-family: 'Lato', sans-serif;
-  font-size: 13px; color: var(--text); font-weight: 400; min-width: 160px;
-}
+tbody td { padding: 7px 10px; text-align: right; font-family: 'Source Code Pro', monospace; font-size: 12px; color: var(--dim); white-space: nowrap; }
+tbody td:first-child { text-align: left; font-family: 'Lato', sans-serif; font-size: 13px; color: var(--text); font-weight: 400; min-width: 160px; }
 tbody td:nth-child(2) { text-align: left; }
 tbody td.hi { color: var(--green); font-weight: 600; }
 
 /* ─── BADGE ─── */
-.badge {
-  display: inline-block; font-size: 10px; font-weight: 700;
-  padding: 2px 7px; border-radius: 3px; white-space: nowrap;
-}
+.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
 .badge-v { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
 .badge-b { background: var(--gold-bg);  color: var(--gold);  border: 1px solid var(--gold-border); }
 
 /* ─── MOBILE CARDS ─── */
 .cards-view { display: none; }
-.group-card-head {
-  font-size: 10px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--dim);
-  padding: 12px 4px 6px;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 8px;
-  display: flex; justify-content: space-between;
-}
+.group-card-head { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); padding: 12px 4px 6px; border-bottom: 2px solid var(--border); margin-bottom: 8px; display: flex; justify-content: space-between; }
 .group-card-head span { font-weight: 400; letter-spacing: 0; }
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-  margin-bottom: 8px;
-  box-shadow: var(--shadow);
-}
-.card-top {
-  display: flex; justify-content: space-between;
-  align-items: flex-start; gap: 8px; margin-bottom: 10px;
-}
-.card-name {
-  font-size: 14px; font-weight: 700; color: var(--text);
-  line-height: 1.3; flex: 1;
-}
-.card-nums {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-}
-.card-num {
-  background: var(--bg);
-  border: 1px solid var(--border-light);
-  border-radius: 5px;
-  padding: 6px 8px;
-  text-align: center;
-}
-.card-num-label {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.8px;
-  text-transform: uppercase; color: var(--muted);
-  display: block; margin-bottom: 2px;
-}
-.card-num-val {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 14px; font-weight: 600; color: var(--text);
-  display: block;
-}
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 8px; box-shadow: var(--shadow); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+.card-name { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; flex: 1; }
+.card-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.card-num { background: var(--bg); border: 1px solid var(--border-light); border-radius: 5px; padding: 6px 8px; text-align: center; }
+.card-num-label { font-size: 9px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 2px; }
+.card-num-val { font-family: 'Source Code Pro', monospace; font-size: 14px; font-weight: 600; color: var(--text); display: block; }
 .card-num-val.hi { color: var(--green); }
 
 /* ─── EMPTY ─── */
 .empty { padding: 50px; text-align: center; color: var(--muted); font-size: 14px; }
 
-/* ─── SCROLLBAR ─── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: #f0f2ef; }
 ::-webkit-scrollbar-thumb { background: #c5ccc3; border-radius: 3px; }
 
-/* ══════════════════════════════════
-   RESPONSIVE BREAKPOINT ≤ 768px
-══════════════════════════════════ */
+/* ══ MOBILE ≤ 768px ══ */
 @media (max-width: 768px) {
-  .header h1 { font-size: 16px; }
   .header-sub { display: none; }
-
-  /* Hide desktop filter sidebar */
   .filter-panel { display: none; }
-
-  /* Show mobile filter */
   .filter-mobile { display: block; }
-
-  /* Cards instead of table */
   .table-wrap { display: none; }
   .cards-view { display: block; }
-
-  /* Content full width, no padding fighting */
   .content { padding: 10px 12px; }
-
-  /* Category bar: scrollable pills */
-  .cat-bar { padding: 8px 12px; }
-
-  /* Larger touch targets */
-  .taug-btn { padding: 8px 14px; font-size: 12px; min-height: 36px; }
-  .cat-btn  { min-height: 34px; font-size: 12px; }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div>
-    <div class="header h1" style="font-size:18px;font-weight:700">Keto Lebensmittel</div>
+    <div class="header-title">Keto Lebensmittel</div>
     <div class="header-sub">SKD · 20–25 g Netto-KH/Tag · je 100 g · BLS/USDA</div>
   </div>
   <div class="header-right"><strong id="cnt">—</strong> Einträge</div>
 </div>
 
-<!-- TAUGLICHKEIT -->
 <div class="taug-bar">
   <span class="taug-label">Tauglichkeit</span>
   <button class="taug-btn tb-active-all" id="tb-all"  onclick="setTaug('all')">Alle</button>
-  <button class="taug-btn"               id="tb-voll" onclick="setTaug('voll')">✅ Keto</button>
+  <button class="taug-btn"               id="tb-voll" onclick="setTaug('voll')">✅ Keto-tauglich</button>
   <button class="taug-btn"               id="tb-bed"  onclick="setTaug('bedingt')">🟡 Bedingt</button>
   <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
 </div>
 
-<!-- CATEGORIES (horizontal scroll on mobile) -->
 <div class="cat-bar">
   <span class="cat-label">Kategorie</span>
   <button class="cat-btn cat-active" id="cat-all" onclick="setCat('')">Alle</button>
 </div>
 
-<!-- MOBILE FILTERS (always visible, stacked grid) -->
+<!-- MOBILE FILTERS -->
 <div class="filter-mobile">
   <div class="filter-mobile-grid">
-    <div class="fp-row">
-      <label class="fp-label">Name</label>
-      <input class="fp-input" id="mf0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Tauglichkeit</label>
-      <select class="fp-select" id="mf1" onchange="syncFilter(1,this.value);render()">
+    <div class="fp-row"><label class="fp-label">Name</label>
+      <input class="fp-input" id="mf0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Tauglichkeit</label>
+      <select class="fp-select" id="mf1" onchange="syncTaugFilter(this.value)">
         <option value="">— alle —</option>
         <option value="voll">Keto-tauglich</option>
         <option value="bedingt">Bedingt</option>
-      </select>
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">kcal &lt;</label>
-      <input class="fp-input" id="mf2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">KH ges. g &lt;</label>
-      <input class="fp-input" id="mf3" type="number" min="0" placeholder="z.B. 5" oninput="syncFilter(3,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Netto-KH g &lt;</label>
-      <input class="fp-input" id="mf4" type="number" min="0" placeholder="z.B. 3" oninput="syncFilter(4,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Protein g &lt;</label>
-      <input class="fp-input" id="mf5" type="number" min="0" placeholder="z.B. 20" oninput="syncFilter(5,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Fett g &lt;</label>
-      <input class="fp-input" id="mf6" type="number" min="0" placeholder="z.B. 10" oninput="syncFilter(6,this.value);render()">
-    </div>
+      </select></div>
+    <div class="fp-row"><label class="fp-label">kcal &lt;</label>
+      <input class="fp-input" id="mf2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">KH ges. g &lt;</label>
+      <input class="fp-input" id="mf3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Netto-KH g &lt;</label>
+      <input class="fp-input" id="mf4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Protein g &lt;</label>
+      <input class="fp-input" id="mf5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Fett g &lt;</label>
+      <input class="fp-input" id="mf6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);render()"></div>
   </div>
 </div>
 
-<!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- DESKTOP FILTER SIDEBAR -->
+  <!-- DESKTOP SIDEBAR -->
   <div class="filter-panel">
     <div class="filter-panel-title">Filter &lt; Wert</div>
-
-    <div class="fp-row">
-      <label class="fp-label">Name</label>
-      <input class="fp-input" id="f0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Tauglichkeit</label>
+    <div class="fp-row"><label class="fp-label">Name</label>
+      <input class="fp-input" id="f0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Tauglichkeit</label>
       <select class="fp-select" id="f1" onchange="syncTaugFilter(this.value)">
         <option value="">— alle —</option>
         <option value="voll">Keto-tauglich</option>
         <option value="bedingt">Bedingt</option>
-      </select>
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">kcal &lt;</label>
-      <input class="fp-input" id="f2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">KH gesamt g &lt;</label>
-      <input class="fp-input" id="f3" type="number" min="0" placeholder="z.B. 5" oninput="syncFilter(3,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Netto-KH g &lt;</label>
-      <input class="fp-input" id="f4" type="number" min="0" placeholder="z.B. 3" oninput="syncFilter(4,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Protein g &lt;</label>
-      <input class="fp-input" id="f5" type="number" min="0" placeholder="z.B. 20" oninput="syncFilter(5,this.value);render()">
-    </div>
-    <div class="fp-row">
-      <label class="fp-label">Fett g &lt;</label>
-      <input class="fp-input" id="f6" type="number" min="0" placeholder="z.B. 10" oninput="syncFilter(6,this.value);render()">
-    </div>
+      </select></div>
+    <div class="fp-row"><label class="fp-label">kcal &lt;</label>
+      <input class="fp-input" id="f2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">KH gesamt g &lt;</label>
+      <input class="fp-input" id="f3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Netto-KH g &lt;</label>
+      <input class="fp-input" id="f4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Protein g &lt;</label>
+      <input class="fp-input" id="f5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);render()"></div>
+    <div class="fp-row"><label class="fp-label">Fett g &lt;</label>
+      <input class="fp-input" id="f6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);render()"></div>
   </div>
 
-  <!-- CONTENT -->
   <div class="content">
-
     <!-- DESKTOP TABLE -->
     <div class="table-wrap">
       <div class="table-scroll">
@@ -469,33 +273,33 @@ tbody td.hi { color: var(--green); font-weight: 600; }
         </table>
       </div>
     </div>
-
     <!-- MOBILE CARDS -->
     <div class="cards-view" id="cards-view"></div>
-
-  </div><!-- /content -->
-</div><!-- /page-body -->
+  </div>
+</div>
 
 <script>
 // [name, tauglichkeit, kcal, kh_gesamt, kh_netto, protein, fett, gruppe]
+// Gruppen: keine Trennung mehr nach keto/bedingt – nur nach Lebensmittelart
 const RAW = [
+  // ── Fleisch & Geflügel ──────────────────────────────
   ["Hähnchenbrust (ohne Haut)","voll",110,0,0,24,1,"Fleisch & Geflügel"],
-  ["Kalbsschnitzel","voll",109,0,0,21,3,"Fleisch & Geflügel"],
   ["Schweinefilet","voll",109,0,0,22,2,"Fleisch & Geflügel"],
-  ["Hirschkeule","voll",120,0,0,24,2,"Fleisch & Geflügel"],
-  ["Wildschweinfleisch","voll",122,0,0,21,4,"Fleisch & Geflügel"],
+  ["Kalbsschnitzel","voll",109,0,0,21,3,"Fleisch & Geflügel"],
   ["Nierchen (Rind)","voll",99,0.9,0.9,17,3,"Fleisch & Geflügel"],
   ["Lunge (Rind)","voll",93,0,0,17,2,"Fleisch & Geflügel"],
-  ["Hühnerherzen","voll",185,0.1,0.1,22,11,"Fleisch & Geflügel"],
-  ["Herz (Rind)","voll",112,0.2,0.2,17,4,"Fleisch & Geflügel"],
-  ["Zunge (Rind)","voll",212,0.4,0.4,17,16,"Fleisch & Geflügel"],
   ["Kaninchen","voll",114,0,0,21,3,"Fleisch & Geflügel"],
+  ["Hirschkeule","voll",120,0,0,24,2,"Fleisch & Geflügel"],
+  ["Wildschweinfleisch","voll",122,0,0,21,4,"Fleisch & Geflügel"],
+  ["Herz (Rind)","voll",112,0.2,0.2,17,4,"Fleisch & Geflügel"],
   ["Kalbsleber","voll",140,3,3,20,5,"Fleisch & Geflügel"],
   ["Leber (Rind)","voll",135,4,4,21,4,"Fleisch & Geflügel"],
   ["Rinderfilet","voll",136,0,0,22,5,"Fleisch & Geflügel"],
   ["Ente (ohne Haut)","voll",160,0,0,20,10,"Fleisch & Geflügel"],
+  ["Hühnerherzen","voll",185,0.1,0.1,22,11,"Fleisch & Geflügel"],
   ["Lammkeule (roh)","voll",205,0,0,20,14,"Fleisch & Geflügel"],
   ["Hähnchenschenkel m. Haut","voll",215,0,0,19,15,"Fleisch & Geflügel"],
+  ["Zunge (Rind)","voll",212,0.4,0.4,17,16,"Fleisch & Geflügel"],
   ["Truthahn, dunkel m. Haut","voll",218,0,0,24,13,"Fleisch & Geflügel"],
   ["Gänsebrust","voll",238,0,0,25,15,"Fleisch & Geflügel"],
   ["Rinderhack (20% Fett)","voll",254,0,0,17,20,"Fleisch & Geflügel"],
@@ -509,28 +313,29 @@ const RAW = [
   ["Chorizo (roh)","voll",455,0,0,24,40,"Fleisch & Geflügel"],
   ["Schweinebauch (roh)","voll",518,0,0,14,50,"Fleisch & Geflügel"],
   ["Speck (Bauch, roh)","voll",541,0,0,15,53,"Fleisch & Geflügel"],
-  ["Seelachs (roh)","voll",74,0,0,17,0.9,"Fisch & Meeresfrüchte"],
-  ["Garnelen (roh)","voll",71,0.9,0.9,14,1,"Fisch & Meeresfrüchte"],
+  // ── Fisch & Meeresfrüchte ───────────────────────────
   ["Austern (roh)","voll",69,4.9,4.9,9,2,"Fisch & Meeresfrüchte"],
+  ["Garnelen (roh)","voll",71,0.9,0.9,14,1,"Fisch & Meeresfrüchte"],
+  ["Seelachs (roh)","voll",74,0,0,17,0.9,"Fisch & Meeresfrüchte"],
+  ["Dorsch (roh)","voll",76,0,0,17,0.7,"Fisch & Meeresfrüchte"],
   ["Kabeljau (roh)","voll",82,0,0,18,1,"Fisch & Meeresfrüchte"],
+  ["Pangasius (roh)","voll",83,0,0,15,2,"Fisch & Meeresfrüchte"],
+  ["Krabben (roh)","voll",83,0,0,19,1,"Fisch & Meeresfrüchte"],
+  ["Zanderfilet","voll",84,0,0,19,1,"Fisch & Meeresfrüchte"],
   ["Flunder (roh)","voll",86,0,0,17,1,"Fisch & Meeresfrüchte"],
   ["Muscheln (roh)","voll",86,4,4,12,2,"Fisch & Meeresfrüchte"],
   ["Hecht (roh)","voll",88,0,0,19,1,"Fisch & Meeresfrüchte"],
   ["Jakobsmuscheln (roh)","voll",88,4,4,17,0.8,"Fisch & Meeresfrüchte"],
-  ["Pangasius (roh)","voll",83,0,0,15,2,"Fisch & Meeresfrüchte"],
   ["Hummer (roh)","voll",90,0.5,0.5,19,1,"Fisch & Meeresfrüchte"],
   ["Rotbarsch (roh)","voll",90,0,0,18,2,"Fisch & Meeresfrüchte"],
   ["Scholle (roh)","voll",91,0,0,18,2,"Fisch & Meeresfrüchte"],
   ["Tintenfisch (roh)","voll",92,3,3,16,1,"Fisch & Meeresfrüchte"],
   ["Tintenfisch (Calamari)","voll",92,3,3,15,1.4,"Fisch & Meeresfrüchte"],
-  ["Krabben (roh)","voll",83,0,0,19,1,"Fisch & Meeresfrüchte"],
-  ["Zanderfilet","voll",84,0,0,19,1,"Fisch & Meeresfrüchte"],
-  ["Dorsch (roh)","voll",76,0,0,17,0.7,"Fisch & Meeresfrüchte"],
   ["Barsch (roh)","voll",96,0,0,19,2,"Fisch & Meeresfrüchte"],
-  ["Dorade (roh)","voll",100,0,0,18,3,"Fisch & Meeresfrüchte"],
-  ["Wels (roh)","voll",116,0,0,18,5,"Fisch & Meeresfrüchte"],
-  ["Heilbutt (roh)","voll",110,0,0,21,2,"Fisch & Meeresfrüchte"],
   ["Wolfsbarsch (roh)","voll",97,0,0,19,2,"Fisch & Meeresfrüchte"],
+  ["Dorade (roh)","voll",100,0,0,18,3,"Fisch & Meeresfrüchte"],
+  ["Heilbutt (roh)","voll",110,0,0,21,2,"Fisch & Meeresfrüchte"],
+  ["Wels (roh)","voll",116,0,0,18,5,"Fisch & Meeresfrüchte"],
   ["Schwertfisch (roh)","voll",121,0,0,20,4,"Fisch & Meeresfrüchte"],
   ["Thunfisch (roh)","voll",144,0,0,23,5,"Fisch & Meeresfrüchte"],
   ["Forelle (roh)","voll",148,0,0,21,7,"Fisch & Meeresfrüchte"],
@@ -539,58 +344,60 @@ const RAW = [
   ["Sardinen (in Öl, abgetr.)","voll",208,0,0,21,14,"Fisch & Meeresfrüchte"],
   ["Makrele (roh)","voll",262,0,0,19,19,"Fisch & Meeresfrüchte"],
   ["Aal (roh)","voll",292,0,0,18,24,"Fisch & Meeresfrüchte"],
+  // ── Eier ────────────────────────────────────────────
   ["Eiweiß (roh)","voll",49,0.7,0.7,11,0,"Eier"],
   ["Hühnerei (ganz)","voll",143,0.7,0.7,13,10,"Eier"],
   ["Wachteleier","voll",158,0.4,0.4,13,11,"Eier"],
   ["Entenei","voll",185,1.4,1.4,13,14,"Eier"],
   ["Gänseei","voll",185,1.4,1.4,14,13,"Eier"],
   ["Eigelb","voll",322,0.6,0.6,16,28,"Eier"],
-  ["Gorgonzola","voll",353,0.1,0.1,20,29,"Käse & Milchprodukte"],
-  ["Emmentaler","voll",380,0.3,0.3,29,29,"Käse & Milchprodukte"],
-  ["Appenzeller","voll",386,0.3,0.3,27,30,"Käse & Milchprodukte"],
-  ["Bergkäse","voll",382,0.3,0.3,26,31,"Käse & Milchprodukte"],
-  ["Raclette","voll",367,0.3,0.3,25,30,"Käse & Milchprodukte"],
-  ["Parmesan","voll",431,0.4,0.4,38,29,"Käse & Milchprodukte"],
-  ["Edam","voll",357,0.4,0.4,25,28,"Käse & Milchprodukte"],
-  ["Cheddar","voll",403,0.4,0.4,25,33,"Käse & Milchprodukte"],
-  ["Gruyère","voll",396,0.4,0.4,27,32,"Käse & Milchprodukte"],
-  ["Comté","voll",415,0.4,0.4,27,34,"Käse & Milchprodukte"],
-  ["Manchego","voll",395,0.5,0.5,25,32,"Käse & Milchprodukte"],
-  ["Pecorino","voll",387,0.5,0.5,26,31,"Käse & Milchprodukte"],
-  ["Brie","voll",334,0.5,0.5,20,28,"Käse & Milchprodukte"],
-  ["Camembert","voll",300,0.5,0.5,20,24,"Käse & Milchprodukte"],
-  ["Mascarpone","voll",429,0.5,0.5,5,44,"Käse & Milchprodukte"],
-  ["Tilsiter (45% i.Tr.)","voll",340,0.5,0.5,24,27,"Käse & Milchprodukte"],
-  ["Gouda (vollfett)","voll",356,0.6,0.6,25,28,"Käse & Milchprodukte"],
-  ["Butter","voll",741,0.1,0.1,0.7,82,"Käse & Milchprodukte"],
-  ["Ghee","voll",900,0,0,0,99,"Käse & Milchprodukte"],
+  // ── Käse & Milchprodukte ────────────────────────────
+  ["Kefir (3,5%)","bedingt",61,4.5,4.5,3.2,3.6,"Käse & Milchprodukte"],
+  ["Vollmilch (3,5%)","bedingt",61,4.7,4.7,3.3,3.5,"Käse & Milchprodukte"],
+  ["Laktosefreie Vollmilch","bedingt",61,4.7,4.7,3.3,3.5,"Käse & Milchprodukte"],
+  ["Ziegenmilch (vollfett)","bedingt",69,4.5,4.5,3.6,4.1,"Käse & Milchprodukte"],
+  ["Ziegenjoghurt (vollfett)","bedingt",75,4.5,4.5,4.2,4.1,"Käse & Milchprodukte"],
+  ["Naturjoghurt (3,5%)","bedingt",68,4.7,4.7,3.7,3.5,"Käse & Milchprodukte"],
+  ["Dickmilch (3,5%)","bedingt",64,4.6,4.6,3.3,3.5,"Käse & Milchprodukte"],
+  ["Buttermilch (3,5%)","bedingt",58,4.8,4.8,3.3,3.5,"Käse & Milchprodukte"],
+  ["Schafsmilch","bedingt",108,5.4,5.4,5.4,7,"Käse & Milchprodukte"],
+  ["Hüttenkäse (Vollfett)","bedingt",103,3.4,3.4,11,4.5,"Käse & Milchprodukte"],
+  ["Quark (Vollfett)","bedingt",116,4,4,12,5.1,"Käse & Milchprodukte"],
+  ["Griechischer Joghurt (10%)","bedingt",133,4,4,8,10,"Käse & Milchprodukte"],
+  ["Ricotta (Vollfett)","bedingt",174,3,3,11,13,"Käse & Milchprodukte"],
+  ["Sahnequark (40%)","voll",160,3.5,3.5,7,12,"Käse & Milchprodukte"],
+  ["Schmand (24%)","voll",241,3,3,2.4,24,"Käse & Milchprodukte"],
+  ["Saure Sahne (24%)","bedingt",241,3.5,3.5,2.5,24,"Käse & Milchprodukte"],
+  ["Büffelmilch-Mozzarella","bedingt",257,0.4,0.4,17,20,"Käse & Milchprodukte"],
+  ["Feta","bedingt",264,0.5,0.5,14,21,"Käse & Milchprodukte"],
+  ["Ziegenkäse (Frisch)","bedingt",264,0.9,0.9,18,21,"Käse & Milchprodukte"],
+  ["Mozzarella (Vollfett)","bedingt",280,2.2,2.2,19,22,"Käse & Milchprodukte"],
+  ["Crème fraîche","bedingt",292,2.7,2.7,2.2,30,"Käse & Milchprodukte"],
   ["Sahne (35% Fett)","voll",337,2.7,2.7,2,35,"Käse & Milchprodukte"],
   ["Frischkäse (Vollfett)","voll",342,2.7,2.7,6,34,"Käse & Milchprodukte"],
   ["Doppelrahmfrischkäse","voll",357,2.5,2.5,6,37,"Käse & Milchprodukte"],
-  ["Schmand (24%)","voll",241,3,3,2.4,24,"Käse & Milchprodukte"],
-  ["Sahnequark (40%)","voll",160,3.5,3.5,7,12,"Käse & Milchprodukte"],
-  ["Büffelmilch-Mozzarella","bedingt",257,0.4,0.4,17,20,"Milchprodukte (bedingt)"],
-  ["Feta","bedingt",264,0.5,0.5,14,21,"Milchprodukte (bedingt)"],
-  ["Ziegenkäse (Frisch)","bedingt",264,0.9,0.9,18,21,"Milchprodukte (bedingt)"],
-  ["Mozzarella (Vollfett)","bedingt",280,2.2,2.2,19,22,"Milchprodukte (bedingt)"],
-  ["Crème fraîche","bedingt",292,2.7,2.7,2.2,30,"Milchprodukte (bedingt)"],
-  ["Hüttenkäse (Vollfett)","bedingt",103,3.4,3.4,11,4.5,"Milchprodukte (bedingt)"],
-  ["Ricotta (Vollfett)","bedingt",174,3,3,11,13,"Milchprodukte (bedingt)"],
-  ["Quark (Vollfett)","bedingt",116,4,4,12,5.1,"Milchprodukte (bedingt)"],
-  ["Griechischer Joghurt (10%)","bedingt",133,4,4,8,10,"Milchprodukte (bedingt)"],
-  ["Saure Sahne (24%)","bedingt",241,3.5,3.5,2.5,24,"Milchprodukte (bedingt)"],
-  ["Kefir (3,5%)","bedingt",61,4.5,4.5,3.2,3.6,"Milchprodukte (bedingt)"],
-  ["Ziegenjoghurt (vollfett)","bedingt",75,4.5,4.5,4.2,4.1,"Milchprodukte (bedingt)"],
-  ["Ziegenmilch (vollfett)","bedingt",69,4.5,4.5,3.6,4.1,"Milchprodukte (bedingt)"],
-  ["Dickmilch (3,5%)","bedingt",64,4.6,4.6,3.3,3.5,"Milchprodukte (bedingt)"],
-  ["Vollmilch (3,5%)","bedingt",61,4.7,4.7,3.3,3.5,"Milchprodukte (bedingt)"],
-  ["Laktosefreie Vollmilch","bedingt",61,4.7,4.7,3.3,3.5,"Milchprodukte (bedingt)"],
-  ["Naturjoghurt (3,5%)","bedingt",68,4.7,4.7,3.7,3.5,"Milchprodukte (bedingt)"],
-  ["Buttermilch (3,5%)","bedingt",58,4.8,4.8,3.3,3.5,"Milchprodukte (bedingt)"],
-  ["Schafsmilch","bedingt",108,5.4,5.4,5.4,7,"Milchprodukte (bedingt)"],
+  ["Tilsiter (45% i.Tr.)","voll",340,0.5,0.5,24,27,"Käse & Milchprodukte"],
+  ["Raclette","voll",367,0.3,0.3,25,30,"Käse & Milchprodukte"],
+  ["Gouda (vollfett)","voll",356,0.6,0.6,25,28,"Käse & Milchprodukte"],
+  ["Edam","voll",357,0.4,0.4,25,28,"Käse & Milchprodukte"],
+  ["Gorgonzola","voll",353,0.1,0.1,20,29,"Käse & Milchprodukte"],
+  ["Brie","voll",334,0.5,0.5,20,28,"Käse & Milchprodukte"],
+  ["Camembert","voll",300,0.5,0.5,20,24,"Käse & Milchprodukte"],
+  ["Emmentaler","voll",380,0.3,0.3,29,29,"Käse & Milchprodukte"],
+  ["Bergkäse","voll",382,0.3,0.3,26,31,"Käse & Milchprodukte"],
+  ["Appenzeller","voll",386,0.3,0.3,27,30,"Käse & Milchprodukte"],
+  ["Pecorino","voll",387,0.5,0.5,26,31,"Käse & Milchprodukte"],
+  ["Manchego","voll",395,0.5,0.5,25,32,"Käse & Milchprodukte"],
+  ["Gruyère","voll",396,0.4,0.4,27,32,"Käse & Milchprodukte"],
+  ["Cheddar","voll",403,0.4,0.4,25,33,"Käse & Milchprodukte"],
+  ["Comté","voll",415,0.4,0.4,27,34,"Käse & Milchprodukte"],
+  ["Mascarpone","voll",429,0.5,0.5,5,44,"Käse & Milchprodukte"],
+  ["Parmesan","voll",431,0.4,0.4,38,29,"Käse & Milchprodukte"],
+  ["Butter","voll",741,0.1,0.1,0.7,82,"Käse & Milchprodukte"],
+  ["Ghee","voll",900,0,0,0,99,"Käse & Milchprodukte"],
+  // ── Fette & Öle ─────────────────────────────────────
+  ["Mayonnaise (Vollfett)","voll",680,1,1,1.5,75,"Fette & Öle"],
   ["Schweineschmalz","voll",882,0,0,0,99,"Fette & Öle"],
-  ["Rindertalg","voll",902,0,0,0,100,"Fette & Öle"],
-  ["Gänseschmalz","voll",900,0,0,0,100,"Fette & Öle"],
   ["MCT-Öl","voll",900,0,0,0,100,"Fette & Öle"],
   ["Olivenöl","voll",884,0,0,0,100,"Fette & Öle"],
   ["Kokosöl","voll",884,0,0,0,100,"Fette & Öle"],
@@ -602,21 +409,23 @@ const RAW = [
   ["Palmöl","voll",884,0,0,0,100,"Fette & Öle"],
   ["Kürbiskernöl","voll",884,0,0,0,100,"Fette & Öle"],
   ["Mandelöl","voll",884,0,0,0,100,"Fette & Öle"],
-  ["Mayonnaise (Vollfett)","voll",680,1,1,1.5,75,"Fette & Öle"],
+  ["Rindertalg","voll",902,0,0,0,100,"Fette & Öle"],
+  ["Gänseschmalz","voll",900,0,0,0,100,"Fette & Öle"],
+  // ── Nüsse & Samen ───────────────────────────────────
   ["Avocado","voll",160,2,0.5,2,15,"Nüsse & Samen"],
   ["Leinsamen","voll",534,2,0.5,18,42,"Nüsse & Samen"],
-  ["Walnüsse","voll",654,3,0.5,15,65,"Nüsse & Samen"],
+  ["Flohsamenschalen","bedingt",220,3,0.5,2,0.7,"Nüsse & Samen"],
   ["Tahini (Sesampaste)","voll",595,3,0.5,17,54,"Nüsse & Samen"],
+  ["Walnüsse","voll",654,3,0.5,15,65,"Nüsse & Samen"],
+  ["Chiasamen","bedingt",486,3.5,0.5,17,31,"Nüsse & Samen"],
   ["Pekannüsse","voll",691,4,1.2,9,72,"Nüsse & Samen"],
   ["Paranüsse","voll",656,4,1,14,66,"Nüsse & Samen"],
   ["Pinienkerne","voll",673,4,2,14,68,"Nüsse & Samen"],
   ["Mandelmus","voll",614,4,1,21,55,"Nüsse & Samen"],
+  ["Hanfsamen","bedingt",553,4,4,31,48,"Nüsse & Samen"],
   ["Macadamianüsse","voll",718,5,1.5,8,76,"Nüsse & Samen"],
   ["Kürbiskerne","voll",559,5,4,30,49,"Nüsse & Samen"],
   ["Kokosraspeln (ungesüßt)","voll",660,5,1,7,65,"Nüsse & Samen"],
-  ["Chiasamen","bedingt",486,3.5,0.5,17,31,"Nüsse & Samen"],
-  ["Flohsamenschalen","bedingt",220,3,0.5,2,0.7,"Nüsse & Samen"],
-  ["Hanfsamen","bedingt",553,4,4,31,48,"Nüsse & Samen"],
   ["Mohnsamen","bedingt",525,5.1,0.5,18,42,"Nüsse & Samen"],
   ["Haselnüsse","bedingt",628,5.3,1.6,15,61,"Nüsse & Samen"],
   ["Mandeln","bedingt",579,5.6,0.6,21,50,"Nüsse & Samen"],
@@ -625,6 +434,7 @@ const RAW = [
   ["Erdnüsse","bedingt",567,8.5,4.5,26,49,"Nüsse & Samen"],
   ["Pistazien","bedingt",562,16,8,20,45,"Nüsse & Samen"],
   ["Cashews","bedingt",553,27,25,18,44,"Nüsse & Samen"],
+  // ── Mehle & Proteinpulver ───────────────────────────
   ["Leinsamenmehl","bedingt",270,4,0.5,36,10,"Mehle & Proteinpulver"],
   ["Eiweißpulver (Ei)","bedingt",381,4,4,83,1,"Mehle & Proteinpulver"],
   ["Molkenprotein (ungesüßt)","bedingt",370,5,5,75,2,"Mehle & Proteinpulver"],
@@ -634,91 +444,95 @@ const RAW = [
   ["Kürbiskernmehl","bedingt",373,11,6,58,11,"Mehle & Proteinpulver"],
   ["Hanfprotein (Pulver)","bedingt",357,11,3,50,9,"Mehle & Proteinpulver"],
   ["Sonnenblumenkernmehl","bedingt",326,11,5,48,9,"Mehle & Proteinpulver"],
-  ["Feldsalat","voll",19,0.7,0.1,2,0.4,"Gemüse (keto)"],
-  ["Champignons","voll",22,0.6,0.4,3.1,0.3,"Gemüse (keto)"],
-  ["Steinpilze (frisch)","voll",22,1.5,0.5,3.7,0.5,"Gemüse (keto)"],
-  ["Endivie","voll",17,0.5,0.2,1.7,0.2,"Gemüse (keto)"],
-  ["Gurke","voll",12,1.8,1.5,0.6,0.1,"Gemüse (keto)"],
-  ["Eisbergsalat","voll",13,1.7,1,0.9,0.1,"Gemüse (keto)"],
-  ["Pak Choi","voll",13,1.5,0.8,1.5,0.2,"Gemüse (keto)"],
-  ["Bok Choy","voll",13,1.5,0.8,1.5,0.2,"Gemüse (keto)"],
-  ["Kopfsalat","voll",14,1.7,0.9,1.4,0.2,"Gemüse (keto)"],
-  ["Radieschen","voll",16,1.9,1.2,0.7,0.1,"Gemüse (keto)"],
-  ["Sellerie (Stange)","voll",16,2,0.8,0.7,0.2,"Gemüse (keto)"],
-  ["Chicorée","voll",17,2.3,0.8,1.2,0.1,"Gemüse (keto)"],
-  ["Zucchini","voll",17,2.6,1.8,1.2,0.3,"Gemüse (keto)"],
-  ["Mangold","voll",19,1.8,0.8,1.8,0.2,"Gemüse (keto)"],
-  ["Sauerkraut","voll",19,1,0.5,1,0.2,"Gemüse (keto)"],
-  ["Spargel","voll",20,2,0.8,2.2,0.1,"Gemüse (keto)"],
-  ["Portobello-Pilze","voll",22,2.6,1.8,2.1,0.4,"Gemüse (keto)"],
-  ["Spinat (roh)","voll",23,1.4,0.4,2.9,0.4,"Gemüse (keto)"],
-  ["Radicchio","voll",23,2.7,1.2,1.4,0.2,"Gemüse (keto)"],
-  ["Rucola","voll",25,2,1,2.6,0.7,"Gemüse (keto)"],
-  ["Blumenkohl","voll",25,3,1.5,1.9,0.3,"Gemüse (keto)"],
-  ["Weißkohl (roh)","voll",25,3.8,1.8,1.3,0.1,"Gemüse (keto)"],
-  ["Kresse","voll",32,1.5,0.5,2.6,0.7,"Gemüse (keto)"],
-  ["Frühlingszwiebeln","voll",32,4.4,2.8,1.8,0.2,"Gemüse (keto)"],
-  ["Rotkohl (roh)","voll",31,5,2.8,1.5,0.1,"Gemüse (keto)"],
-  ["Austernpilze","voll",33,3.5,1.5,3.3,0.4,"Gemüse (keto)"],
-  ["Shiitake-Pilze","voll",34,4.3,2.5,2.2,0.5,"Gemüse (keto)"],
-  ["Meerrettich (frisch)","voll",48,4,1.5,2.5,0.5,"Gemüse (keto)"],
-  ["Tomate","bedingt",18,3.5,2.7,0.9,0.2,"Gemüse (bedingt)"],
-  ["Paprika (grün)","bedingt",20,3.6,2.4,0.9,0.2,"Gemüse (bedingt)"],
-  ["Kohlrabi","bedingt",27,4.9,3,1.7,0.1,"Gemüse (bedingt)"],
-  ["Paprika (gelb)","bedingt",27,5.7,4.8,1,0.2,"Gemüse (bedingt)"],
-  ["Fenchel","bedingt",31,4.2,1.2,1.2,0.2,"Gemüse (bedingt)"],
-  ["Grüne Bohnen","bedingt",31,4.3,1.8,1.8,0.2,"Gemüse (bedingt)"],
-  ["Paprika (rot)","bedingt",31,6,4.8,1,0.3,"Gemüse (bedingt)"],
-  ["Brokkoli","bedingt",34,5,2,2.8,0.4,"Gemüse (bedingt)"],
-  ["Steckrübe","bedingt",38,7.4,5.6,1.1,0.1,"Gemüse (bedingt)"],
-  ["Zwiebel (roh)","bedingt",40,7.9,6.5,1.1,0.1,"Gemüse (bedingt)"],
-  ["Karotte","bedingt",41,8.2,6,0.9,0.2,"Gemüse (bedingt)"],
-  ["Zuckerschoten","bedingt",42,7.6,5,2.8,0.2,"Gemüse (bedingt)"],
-  ["Rosenkohl","bedingt",43,5,2.5,3.4,0.3,"Gemüse (bedingt)"],
-  ["Rote Bete","bedingt",43,8,6,1.6,0.1,"Gemüse (bedingt)"],
-  ["Kürbis (Hokkaido)","bedingt",45,8,6.5,1.4,0.1,"Gemüse (bedingt)"],
-  ["Artischocke","bedingt",53,6.5,1.8,3.3,0.2,"Gemüse (bedingt)"],
-  ["Lauch","bedingt",61,10,7,1.5,0.3,"Gemüse (bedingt)"],
-  ["Pastinake","bedingt",75,12.5,9.5,1.3,0.3,"Gemüse (bedingt)"],
-  ["Mais (frisch)","bedingt",86,17,14,3.2,1.2,"Gemüse (bedingt)"],
-  ["Erbsen (frisch)","bedingt",81,10,6,5.4,0.4,"Gemüse (bedingt)"],
-  ["Süßkartoffel","bedingt",86,20,17,1.6,0.1,"Gemüse (bedingt)"],
-  ["Linsen (grün, roh)","bedingt",116,14,7,9,0.4,"Gemüse (bedingt)"],
-  ["Knoblauch","bedingt",149,29,27,6.4,0.5,"Gemüse (bedingt)"],
-  ["Brombeeren","bedingt",43,5.2,1.8,1.4,0.5,"Beeren & Obst"],
-  ["Wassermelone","bedingt",30,7.6,7.2,0.6,0.2,"Beeren & Obst"],
-  ["Erdbeeren","bedingt",32,5.5,4.2,0.7,0.3,"Beeren & Obst"],
-  ["Melone (Cantaloupe)","bedingt",34,7.9,7.2,0.8,0.2,"Beeren & Obst"],
-  ["Johannisbeeren (rot)","bedingt",36,5.9,3.8,1.1,0.2,"Beeren & Obst"],
-  ["Pfirsich","bedingt",39,9.5,8.4,0.9,0.3,"Beeren & Obst"],
-  ["Papaya","bedingt",39,10,8.3,0.6,0.1,"Beeren & Obst"],
-  ["Grapefruit","bedingt",42,9,7.9,0.8,0.1,"Beeren & Obst"],
-  ["Stachelbeeren","bedingt",44,7.7,6,0.9,0.6,"Beeren & Obst"],
-  ["Nektarine","bedingt",44,9.5,8.3,1.1,0.3,"Beeren & Obst"],
-  ["Aprikose","bedingt",48,9.4,8.2,1.4,0.4,"Beeren & Obst"],
-  ["Himbeeren","bedingt",52,5.4,2.3,1.2,0.7,"Beeren & Obst"],
-  ["Heidelbeeren","bedingt",57,9.7,7.6,0.7,0.3,"Beeren & Obst"],
-  ["Johannisbeeren (schwarz)","bedingt",63,6.8,1.5,1.3,0.4,"Beeren & Obst"],
-  ["Pflaume","bedingt",46,9.6,8.2,0.7,0.3,"Beeren & Obst"],
-  ["Preiselbeeren (frisch)","bedingt",46,9.9,6.4,0.4,0.1,"Beeren & Obst"],
-  ["Clementine","bedingt",47,10.9,9.7,0.9,0.2,"Beeren & Obst"],
-  ["Kiwi","bedingt",61,11,9,1.1,0.5,"Beeren & Obst"],
-  ["Feige (frisch)","bedingt",74,11.5,9.2,0.7,0.3,"Beeren & Obst"],
-  ["Granatapfelkerne","bedingt",83,13.7,11.2,1.7,1.2,"Beeren & Obst"],
+  // ── Gemüse ──────────────────────────────────────────
+  ["Endivie","voll",17,0.5,0.2,1.7,0.2,"Gemüse"],
+  ["Champignons","voll",22,0.6,0.4,3.1,0.3,"Gemüse"],
+  ["Feldsalat","voll",19,0.7,0.1,2,0.4,"Gemüse"],
+  ["Sauerkraut","voll",19,1,0.5,1,0.2,"Gemüse"],
+  ["Tomate","bedingt",18,3.5,2.7,0.9,0.2,"Gemüse"],
+  ["Pak Choi","voll",13,1.5,0.8,1.5,0.2,"Gemüse"],
+  ["Bok Choy","voll",13,1.5,0.8,1.5,0.2,"Gemüse"],
+  ["Spinat (roh)","voll",23,1.4,0.4,2.9,0.4,"Gemüse"],
+  ["Steinpilze (frisch)","voll",22,1.5,0.5,3.7,0.5,"Gemüse"],
+  ["Eisbergsalat","voll",13,1.7,1,0.9,0.1,"Gemüse"],
+  ["Kopfsalat","voll",14,1.7,0.9,1.4,0.2,"Gemüse"],
+  ["Gurke","voll",12,1.8,1.5,0.6,0.1,"Gemüse"],
+  ["Mangold","voll",19,1.8,0.8,1.8,0.2,"Gemüse"],
+  ["Radieschen","voll",16,1.9,1.2,0.7,0.1,"Gemüse"],
+  ["Rucola","voll",25,2,1,2.6,0.7,"Gemüse"],
+  ["Sellerie (Stange)","voll",16,2,0.8,0.7,0.2,"Gemüse"],
+  ["Spargel","voll",20,2,0.8,2.2,0.1,"Gemüse"],
+  ["Paprika (grün)","bedingt",20,3.6,2.4,0.9,0.2,"Gemüse"],
+  ["Chicorée","voll",17,2.3,0.8,1.2,0.1,"Gemüse"],
+  ["Zucchini","voll",17,2.6,1.8,1.2,0.3,"Gemüse"],
+  ["Portobello-Pilze","voll",22,2.6,1.8,2.1,0.4,"Gemüse"],
+  ["Radicchio","voll",23,2.7,1.2,1.4,0.2,"Gemüse"],
+  ["Kresse","voll",32,1.5,0.5,2.6,0.7,"Gemüse"],
+  ["Blumenkohl","voll",25,3,1.5,1.9,0.3,"Gemüse"],
+  ["Weißkohl (roh)","voll",25,3.8,1.8,1.3,0.1,"Gemüse"],
+  ["Fenchel","bedingt",31,4.2,1.2,1.2,0.2,"Gemüse"],
+  ["Grüne Bohnen","bedingt",31,4.3,1.8,1.8,0.2,"Gemüse"],
+  ["Frühlingszwiebeln","voll",32,4.4,2.8,1.8,0.2,"Gemüse"],
+  ["Shiitake-Pilze","voll",34,4.3,2.5,2.2,0.5,"Gemüse"],
+  ["Austernpilze","voll",33,3.5,1.5,3.3,0.4,"Gemüse"],
+  ["Meerrettich (frisch)","voll",48,4,1.5,2.5,0.5,"Gemüse"],
+  ["Kohlrabi","bedingt",27,4.9,3,1.7,0.1,"Gemüse"],
+  ["Rotkohl (roh)","voll",31,5,2.8,1.5,0.1,"Gemüse"],
+  ["Brokkoli","bedingt",34,5,2,2.8,0.4,"Gemüse"],
+  ["Rosenkohl","bedingt",43,5,2.5,3.4,0.3,"Gemüse"],
+  ["Paprika (gelb)","bedingt",27,5.7,4.8,1,0.2,"Gemüse"],
+  ["Paprika (rot)","bedingt",31,6,4.8,1,0.3,"Gemüse"],
+  ["Artischocke","bedingt",53,6.5,1.8,3.3,0.2,"Gemüse"],
+  ["Steckrübe","bedingt",38,7.4,5.6,1.1,0.1,"Gemüse"],
+  ["Zuckerschoten","bedingt",42,7.6,5,2.8,0.2,"Gemüse"],
+  ["Zwiebel (roh)","bedingt",40,7.9,6.5,1.1,0.1,"Gemüse"],
+  ["Rote Bete","bedingt",43,8,6,1.6,0.1,"Gemüse"],
+  ["Kürbis (Hokkaido)","bedingt",45,8,6.5,1.4,0.1,"Gemüse"],
+  ["Karotte","bedingt",41,8.2,6,0.9,0.2,"Gemüse"],
+  ["Erbsen (frisch)","bedingt",81,10,6,5.4,0.4,"Gemüse"],
+  ["Lauch","bedingt",61,10,7,1.5,0.3,"Gemüse"],
+  ["Pastinake","bedingt",75,12.5,9.5,1.3,0.3,"Gemüse"],
+  ["Linsen (grün, roh)","bedingt",116,14,7,9,0.4,"Gemüse"],
+  ["Mais (frisch)","bedingt",86,17,14,3.2,1.2,"Gemüse"],
+  ["Süßkartoffel","bedingt",86,20,17,1.6,0.1,"Gemüse"],
+  ["Knoblauch","bedingt",149,29,27,6.4,0.5,"Gemüse"],
+  // ── Obst & Beeren ───────────────────────────────────
+  ["Wassermelone","bedingt",30,7.6,7.2,0.6,0.2,"Obst & Beeren"],
+  ["Erdbeeren","bedingt",32,5.5,4.2,0.7,0.3,"Obst & Beeren"],
+  ["Melone (Cantaloupe)","bedingt",34,7.9,7.2,0.8,0.2,"Obst & Beeren"],
+  ["Johannisbeeren (rot)","bedingt",36,5.9,3.8,1.1,0.2,"Obst & Beeren"],
+  ["Pfirsich","bedingt",39,9.5,8.4,0.9,0.3,"Obst & Beeren"],
+  ["Papaya","bedingt",39,10,8.3,0.6,0.1,"Obst & Beeren"],
+  ["Grapefruit","bedingt",42,9,7.9,0.8,0.1,"Obst & Beeren"],
+  ["Brombeeren","bedingt",43,5.2,1.8,1.4,0.5,"Obst & Beeren"],
+  ["Stachelbeeren","bedingt",44,7.7,6,0.9,0.6,"Obst & Beeren"],
+  ["Nektarine","bedingt",44,9.5,8.3,1.1,0.3,"Obst & Beeren"],
+  ["Aprikose","bedingt",48,9.4,8.2,1.4,0.4,"Obst & Beeren"],
+  ["Preiselbeeren (frisch)","bedingt",46,9.9,6.4,0.4,0.1,"Obst & Beeren"],
+  ["Pflaume","bedingt",46,9.6,8.2,0.7,0.3,"Obst & Beeren"],
+  ["Clementine","bedingt",47,10.9,9.7,0.9,0.2,"Obst & Beeren"],
+  ["Himbeeren","bedingt",52,5.4,2.3,1.2,0.7,"Obst & Beeren"],
+  ["Heidelbeeren","bedingt",57,9.7,7.6,0.7,0.3,"Obst & Beeren"],
+  ["Johannisbeeren (schwarz)","bedingt",63,6.8,1.5,1.3,0.4,"Obst & Beeren"],
+  ["Kiwi","bedingt",61,11,9,1.1,0.5,"Obst & Beeren"],
+  ["Feige (frisch)","bedingt",74,11.5,9.2,0.7,0.3,"Obst & Beeren"],
+  ["Granatapfelkerne","bedingt",83,13.7,11.2,1.7,1.2,"Obst & Beeren"],
+  // ── Gewürze & Kräuter ───────────────────────────────
   ["Salz","voll",0,0,0,0,0,"Gewürze & Kräuter"],
   ["Apfelessig","voll",22,0.9,0.9,0,0,"Gewürze & Kräuter"],
   ["Basilikum (frisch)","voll",23,2.7,1,3.2,0.6,"Gewürze & Kräuter"],
   ["Schnittlauch","voll",30,1.3,0.5,3.3,0.7,"Gewürze & Kräuter"],
   ["Petersilie (frisch)","voll",36,2,0.5,3,0.8,"Gewürze & Kräuter"],
   ["Dill (frisch)","voll",43,3.5,1.5,3.5,1.1,"Gewürze & Kräuter"],
+  ["Senf (mittelscharf)","bedingt",90,5,4,5,5,"Gewürze & Kräuter"],
   ["Thymian (frisch)","voll",101,5,1.5,5.6,1.7,"Gewürze & Kräuter"],
   ["Rosmarin (frisch)","voll",131,5,2,3.3,5.9,"Gewürze & Kräuter"],
   ["Zitronensaft","bedingt",22,6.9,6.5,0.4,0.2,"Gewürze & Kräuter"],
-  ["Senf (mittelscharf)","bedingt",90,5,4,5,5,"Gewürze & Kräuter"],
   ["Ingwer (frisch)","bedingt",80,15,14,1.8,0.8,"Gewürze & Kräuter"],
   ["Pfeffer (schwarz)","bedingt",251,38,30,10,3,"Gewürze & Kräuter"],
   ["Zimt (gemahlen)","bedingt",247,55,28,4,1.2,"Gewürze & Kräuter"],
   ["Kurkuma (gemahlen)","bedingt",354,58,51,8,10,"Gewürze & Kräuter"],
+  // ── Getränke ────────────────────────────────────────
   ["Wasser","voll",0,0,0,0,0,"Getränke"],
   ["Mineralwasser (pur)","voll",0,0,0,0,0,"Getränke"],
   ["Kohlensäurewasser","voll",0,0,0,0,0,"Getränke"],
@@ -729,6 +543,7 @@ const RAW = [
   ["Knochenbrühe","voll",10,0,0,2,0.1,"Getränke"],
   ["Mandelmilch (ungesüßt)","voll",15,0.5,0.3,0.6,1,"Getränke"],
   ["Kokosmilch (Vollfett)","voll",230,2.8,2.8,2.2,24,"Getränke"],
+  // ── Süßmittel & Backzutaten ─────────────────────────
   ["Monk Fruit (rein)","voll",0,0,0,0,0,"Süßmittel & Backzutaten"],
   ["Erythrit","voll",0,100,0,0,0,"Süßmittel & Backzutaten"],
   ["Stevia (Pulver)","voll",0,96,0,0,0,"Süßmittel & Backzutaten"],
@@ -744,11 +559,9 @@ const RAW = [
 
 RAW.sort((a,b) => a[3]-b[3] || a[2]-b[2]);
 
-// State
 let activeTabTaug = 'all';
 let activeCat = '';
 let sortCol = null, sortDir = 1;
-// Filter values (shared between desktop sidebar + mobile inputs)
 const filterVals = ['','','','','','',''];
 
 // Build category buttons
@@ -764,24 +577,19 @@ groups.forEach(g => {
 
 function syncFilter(idx, val) {
   filterVals[idx] = val.trim();
-  // Sync desktop ↔ mobile
-  const desk = document.getElementById('f'+idx);
-  const mob  = document.getElementById('mf'+idx);
-  if (desk && desk.value !== val) desk.value = val;
-  if (mob  && mob.value  !== val) mob.value  = val;
-  // Active class
-  if (desk) desk.classList.toggle('active', !!filterVals[idx]);
-  if (mob)  mob.classList.toggle('active',  !!filterVals[idx]);
+  const d = document.getElementById('f'+idx);
+  const m = document.getElementById('mf'+idx);
+  if (d && d.value !== val) d.value = val;
+  if (m && m.value !== val) m.value = val;
+  if (d) d.classList.toggle('active', !!filterVals[idx]);
+  if (m) m.classList.toggle('active', !!filterVals[idx]);
 }
 
 function syncTaugFilter(val) {
-  // desktop select changed
   filterVals[1] = val;
-  const mob = document.getElementById('mf1');
-  if (mob) mob.value = val;
-  document.getElementById('mf1').classList.toggle('active', !!val);
-  document.getElementById('f1').classList.toggle('active', !!val);
-  // Sync tab buttons
+  const d = document.getElementById('f1'), m = document.getElementById('mf1');
+  if (d) { d.value = val; d.classList.toggle('active', !!val); }
+  if (m) { m.value = val; m.classList.toggle('active', !!val); }
   activeTabTaug = val || 'all';
   updateTaugBtns();
   render();
@@ -791,10 +599,10 @@ function setTaug(t) {
   activeTabTaug = t;
   const v = t === 'all' ? '' : t;
   filterVals[1] = v;
-  const d = document.getElementById('f1');
-  const m = document.getElementById('mf1');
-  if (d) { d.value = v; d.classList.toggle('active', !!v); }
-  if (m) { m.value = v; m.classList.toggle('active', !!v); }
+  ['f1','mf1'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.value = v; el.classList.toggle('active', !!v); }
+  });
   updateTaugBtns();
   render();
 }
@@ -807,10 +615,8 @@ function updateTaugBtns() {
 
 function setCat(g) {
   activeCat = g;
-  document.querySelectorAll('.cat-btn').forEach(b => {
-    b.classList.toggle('cat-active',
-      g === '' ? b.id === 'cat-all' : b.textContent === g);
-  });
+  document.querySelectorAll('.cat-btn').forEach(b =>
+    b.classList.toggle('cat-active', g==='' ? b.id==='cat-all' : b.textContent===g));
   render();
 }
 
@@ -821,10 +627,7 @@ function passes(row) {
   const nums = [kcal, kh, netto, prot, fett];
   for (let i=0; i<5; i++) {
     const v = filterVals[i+2];
-    if (v !== '') {
-      const lim = parseFloat(v);
-      if (!isNaN(lim) && nums[i] >= lim) return false;
-    }
+    if (v !== '') { const lim = parseFloat(v); if (!isNaN(lim) && nums[i] >= lim) return false; }
   }
   if (activeCat && gruppe !== activeCat) return false;
   return true;
@@ -837,7 +640,6 @@ function fmt(v) {
 
 function render() {
   let rows = RAW.filter(passes);
-
   if (sortCol !== null) {
     rows.sort((a,b) => {
       let av, bv;
@@ -848,10 +650,8 @@ function render() {
       return sortDir * (av-bv);
     });
   }
-
   document.getElementById('cnt').textContent = rows.length;
 
-  // Group
   const grouped = {}, groupOrder = [];
   for (const r of rows) {
     if (!grouped[r[7]]) { grouped[r[7]]=[]; groupOrder.push(r[7]); }
@@ -866,7 +666,7 @@ function render() {
     return;
   }
 
-  // ── DESKTOP TABLE ──
+  // Desktop table
   let thtml = '';
   for (const grp of groupOrder) {
     thtml += `<tr class="group-sep"><td colspan="7">${grp} <span style="font-weight:400;letter-spacing:0">(${grouped[grp].length})</span></td></tr>`;
@@ -875,19 +675,17 @@ function render() {
       const badge = taug==='voll'
         ? '<span class="badge badge-v">Keto-tauglich</span>'
         : '<span class="badge badge-b">Bedingt</span>';
-      thtml += `<tr class="data-row">
-        <td>${name}</td><td>${badge}</td>
+      thtml += `<tr class="data-row"><td>${name}</td><td>${badge}</td>
         <td class="${numActive[0]?'hi':''}">${fmt(kcal)}</td>
         <td class="${numActive[1]?'hi':''}">${fmt(kh)}</td>
         <td class="${numActive[2]?'hi':''}">${fmt(netto)}</td>
         <td class="${numActive[3]?'hi':''}">${fmt(prot)}</td>
-        <td class="${numActive[4]?'hi':''}">${fmt(fett)}</td>
-      </tr>`;
+        <td class="${numActive[4]?'hi':''}">${fmt(fett)}</td></tr>`;
     }
   }
   document.getElementById('tbody').innerHTML = thtml;
 
-  // ── MOBILE CARDS ──
+  // Mobile cards
   let chtml = '';
   for (const grp of groupOrder) {
     chtml += `<div class="group-card-head">${grp} <span>${grouped[grp].length} Einträge</span></div>`;
@@ -897,33 +695,14 @@ function render() {
         ? '<span class="badge badge-v">✅ Keto-tauglich</span>'
         : '<span class="badge badge-b">🟡 Bedingt</span>';
       chtml += `<div class="card">
-        <div class="card-top">
-          <div class="card-name">${name}</div>
-          ${badge}
-        </div>
+        <div class="card-top"><div class="card-name">${name}</div>${badge}</div>
         <div class="card-nums">
-          <div class="card-num">
-            <span class="card-num-label">kcal</span>
-            <span class="card-num-val ${numActive[0]?'hi':''}">${fmt(kcal)}</span>
-          </div>
-          <div class="card-num">
-            <span class="card-num-label">KH ges.</span>
-            <span class="card-num-val ${numActive[1]?'hi':''}">${fmt(kh)} g</span>
-          </div>
-          <div class="card-num">
-            <span class="card-num-label">Netto-KH</span>
-            <span class="card-num-val ${numActive[2]?'hi':''}">${fmt(netto)} g</span>
-          </div>
-          <div class="card-num">
-            <span class="card-num-label">Protein</span>
-            <span class="card-num-val ${numActive[3]?'hi':''}">${fmt(prot)} g</span>
-          </div>
-          <div class="card-num">
-            <span class="card-num-label">Fett</span>
-            <span class="card-num-val ${numActive[4]?'hi':''}">${fmt(fett)} g</span>
-          </div>
-        </div>
-      </div>`;
+          <div class="card-num"><span class="card-num-label">kcal</span><span class="card-num-val ${numActive[0]?'hi':''}">${fmt(kcal)}</span></div>
+          <div class="card-num"><span class="card-num-label">KH ges.</span><span class="card-num-val ${numActive[1]?'hi':''}">${fmt(kh)} g</span></div>
+          <div class="card-num"><span class="card-num-label">Netto-KH</span><span class="card-num-val ${numActive[2]?'hi':''}">${fmt(netto)} g</span></div>
+          <div class="card-num"><span class="card-num-label">Protein</span><span class="card-num-val ${numActive[3]?'hi':''}">${fmt(prot)} g</span></div>
+          <div class="card-num"><span class="card-num-label">Fett</span><span class="card-num-val ${numActive[4]?'hi':''}">${fmt(fett)} g</span></div>
+        </div></div>`;
     }
   }
   document.getElementById('cards-view').innerHTML = chtml;
@@ -943,14 +722,12 @@ function sortBy(col) {
 
 function resetAll() {
   for (let i=0;i<7;i++) filterVals[i]='';
-  ['f0','f2','f3','f4','f5','f6','mf0','mf2','mf3','mf4','mf5','mf6'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el){el.value=''; el.classList.remove('active');}
-  });
-  ['f1','mf1'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el){el.value=''; el.classList.remove('active');}
-  });
+  for (let i=0;i<7;i++) {
+    ['f','mf'].forEach(p=>{
+      const el=document.getElementById(p+i);
+      if(el){el.value=''; el.classList.remove('active');}
+    });
+  }
   activeTabTaug='all'; activeCat='';
   updateTaugBtns();
   setCat('');
