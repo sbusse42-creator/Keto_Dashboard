@@ -1,18 +1,11 @@
-# Keto Lebensmittel Dashboard (Static)
+# Statische HTML-Seite (austauschbar)
 
-This repository hosts a single static HTML page (`index.html`) intended to be deployed with **Azure Static Web Apps**.
+## Ziel
+- `content.html` enthält **die eigentliche Seite** (unverändert).
+- `index.html` ist ein stabiler Einstiegspunkt für Hosting (Azure Static Web Apps).
+- Für Updates wird **nur `content.html` ersetzt**.
 
-## Local preview
-
-Open `index.html` directly in a browser, or run a tiny local server:
-
-### Python
-```bash
-python -m http.server 8000
-```
-
-Then open: http://localhost:8000
-
-## Deploy to Azure Static Web Apps (Portal)
-
-See the step-by-step instructions in the chat message.
+## Austausch
+1. `content.html` ersetzen
+2. Commit & Push
+3. Fertig
