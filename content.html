@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keto Lebensmittel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -208,7 +210,7 @@ tbody td.hi { color: var(--green); font-weight: 600; }
 <div class="filter-mobile">
   <div class="filter-mobile-grid">
     <div class="fp-row"><label class="fp-label">Name</label>
-      <input class="fp-input" id="mf0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()"></div>
+      <input class="fp-input" id="mf0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Tauglichkeit</label>
       <select class="fp-select" id="mf1" onchange="syncTaugFilter(this.value)">
         <option value="">— alle —</option>
@@ -216,15 +218,15 @@ tbody td.hi { color: var(--green); font-weight: 600; }
         <option value="bedingt">Bedingt</option>
       </select></div>
     <div class="fp-row"><label class="fp-label">kcal &lt;</label>
-      <input class="fp-input" id="mf2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()"></div>
+      <input class="fp-input" id="mf2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">KH ges. g &lt;</label>
-      <input class="fp-input" id="mf3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);render()"></div>
+      <input class="fp-input" id="mf3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Netto-KH g &lt;</label>
-      <input class="fp-input" id="mf4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);render()"></div>
+      <input class="fp-input" id="mf4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Protein g &lt;</label>
-      <input class="fp-input" id="mf5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);render()"></div>
+      <input class="fp-input" id="mf5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Fett g &lt;</label>
-      <input class="fp-input" id="mf6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);render()"></div>
+      <input class="fp-input" id="mf6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);renderDebounced()"></div>
   </div>
 </div>
 
@@ -234,7 +236,7 @@ tbody td.hi { color: var(--green); font-weight: 600; }
   <div class="filter-panel">
     <div class="filter-panel-title">Filter &lt; Wert</div>
     <div class="fp-row"><label class="fp-label">Name</label>
-      <input class="fp-input" id="f0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);render()"></div>
+      <input class="fp-input" id="f0" type="text" placeholder="Name …" oninput="syncFilter(0,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Tauglichkeit</label>
       <select class="fp-select" id="f1" onchange="syncTaugFilter(this.value)">
         <option value="">— alle —</option>
@@ -242,15 +244,15 @@ tbody td.hi { color: var(--green); font-weight: 600; }
         <option value="bedingt">Bedingt</option>
       </select></div>
     <div class="fp-row"><label class="fp-label">kcal &lt;</label>
-      <input class="fp-input" id="f2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);render()"></div>
+      <input class="fp-input" id="f2" type="number" min="0" placeholder="z.B. 200" oninput="syncFilter(2,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">KH gesamt g &lt;</label>
-      <input class="fp-input" id="f3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);render()"></div>
+      <input class="fp-input" id="f3" type="number" min="0" placeholder="z.B. 5"   oninput="syncFilter(3,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Netto-KH g &lt;</label>
-      <input class="fp-input" id="f4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);render()"></div>
+      <input class="fp-input" id="f4" type="number" min="0" placeholder="z.B. 3"   oninput="syncFilter(4,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Protein g &lt;</label>
-      <input class="fp-input" id="f5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);render()"></div>
+      <input class="fp-input" id="f5" type="number" min="0" placeholder="z.B. 20"  oninput="syncFilter(5,this.value);renderDebounced()"></div>
     <div class="fp-row"><label class="fp-label">Fett g &lt;</label>
-      <input class="fp-input" id="f6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);render()"></div>
+      <input class="fp-input" id="f6" type="number" min="0" placeholder="z.B. 10"  oninput="syncFilter(6,this.value);renderDebounced()"></div>
   </div>
 
   <div class="content">
@@ -660,52 +662,58 @@ function render() {
 
   const numActive = [2,3,4,5,6].map(i => filterVals[i] !== '');
 
+  const mobile = window.matchMedia('(max-width:768px)').matches;
+
   if (!rows.length) {
-    document.getElementById('tbody').innerHTML = '<tr><td colspan="7" class="empty">Keine Einträge gefunden.</td></tr>';
-    document.getElementById('cards-view').innerHTML = '<div class="empty">Keine Einträge gefunden.</div>';
+    document.getElementById('tbody').innerHTML = mobile ? '' : '<tr><td colspan="7" class="empty">Keine Einträge gefunden.</td></tr>';
+    document.getElementById('cards-view').innerHTML = mobile ? '<div class="empty">Keine Einträge gefunden.</div>' : '';
     return;
   }
 
-  // Desktop table
-  let thtml = '';
-  for (const grp of groupOrder) {
-    thtml += `<tr class="group-sep"><td colspan="7">${grp} <span style="font-weight:400;letter-spacing:0">(${grouped[grp].length})</span></td></tr>`;
-    for (const r of grouped[grp]) {
-      const [name,taug,kcal,kh,netto,prot,fett] = r;
-      const badge = taug==='voll'
-        ? '<span class="badge badge-v">Keto-tauglich</span>'
-        : '<span class="badge badge-b">Bedingt</span>';
-      thtml += `<tr class="data-row"><td>${name}</td><td>${badge}</td>
-        <td class="${numActive[0]?'hi':''}">${fmt(kcal)}</td>
-        <td class="${numActive[1]?'hi':''}">${fmt(kh)}</td>
-        <td class="${numActive[2]?'hi':''}">${fmt(netto)}</td>
-        <td class="${numActive[3]?'hi':''}">${fmt(prot)}</td>
-        <td class="${numActive[4]?'hi':''}">${fmt(fett)}</td></tr>`;
+  if (!mobile) {
+    // Desktop table
+    let thtml = '';
+    for (const grp of groupOrder) {
+      thtml += `<tr class="group-sep"><td colspan="7">${grp} <span style="font-weight:400;letter-spacing:0">(${grouped[grp].length})</span></td></tr>`;
+      for (const r of grouped[grp]) {
+        const [name,taug,kcal,kh,netto,prot,fett] = r;
+        const badge = taug==='voll'
+          ? '<span class="badge badge-v">Keto-tauglich</span>'
+          : '<span class="badge badge-b">Bedingt</span>';
+        thtml += `<tr class="data-row"><td>${name}</td><td>${badge}</td>
+          <td class="${numActive[0]?'hi':''}">${fmt(kcal)}</td>
+          <td class="${numActive[1]?'hi':''}">${fmt(kh)}</td>
+          <td class="${numActive[2]?'hi':''}">${fmt(netto)}</td>
+          <td class="${numActive[3]?'hi':''}">${fmt(prot)}</td>
+          <td class="${numActive[4]?'hi':''}">${fmt(fett)}</td></tr>`;
+      }
     }
-  }
-  document.getElementById('tbody').innerHTML = thtml;
-
-  // Mobile cards
-  let chtml = '';
-  for (const grp of groupOrder) {
-    chtml += `<div class="group-card-head">${grp} <span>${grouped[grp].length} Einträge</span></div>`;
-    for (const r of grouped[grp]) {
-      const [name,taug,kcal,kh,netto,prot,fett] = r;
-      const badge = taug==='voll'
-        ? '<span class="badge badge-v">✅ Keto-tauglich</span>'
-        : '<span class="badge badge-b">🟡 Bedingt</span>';
-      chtml += `<div class="card">
-        <div class="card-top"><div class="card-name">${name}</div>${badge}</div>
-        <div class="card-nums">
-          <div class="card-num"><span class="card-num-label">kcal</span><span class="card-num-val ${numActive[0]?'hi':''}">${fmt(kcal)}</span></div>
-          <div class="card-num"><span class="card-num-label">KH ges.</span><span class="card-num-val ${numActive[1]?'hi':''}">${fmt(kh)} g</span></div>
-          <div class="card-num"><span class="card-num-label">Netto-KH</span><span class="card-num-val ${numActive[2]?'hi':''}">${fmt(netto)} g</span></div>
-          <div class="card-num"><span class="card-num-label">Protein</span><span class="card-num-val ${numActive[3]?'hi':''}">${fmt(prot)} g</span></div>
-          <div class="card-num"><span class="card-num-label">Fett</span><span class="card-num-val ${numActive[4]?'hi':''}">${fmt(fett)} g</span></div>
-        </div></div>`;
+    document.getElementById('tbody').innerHTML = thtml;
+    document.getElementById('cards-view').innerHTML = '';
+  } else {
+    // Mobile cards
+    let chtml = '';
+    for (const grp of groupOrder) {
+      chtml += `<div class="group-card-head">${grp} <span>${grouped[grp].length} Einträge</span></div>`;
+      for (const r of grouped[grp]) {
+        const [name,taug,kcal,kh,netto,prot,fett] = r;
+        const badge = taug==='voll'
+          ? '<span class="badge badge-v">✅ Keto-tauglich</span>'
+          : '<span class="badge badge-b">🟡 Bedingt</span>';
+        chtml += `<div class="card">
+          <div class="card-top"><div class="card-name">${name}</div>${badge}</div>
+          <div class="card-nums">
+            <div class="card-num"><span class="card-num-label">kcal</span><span class="card-num-val ${numActive[0]?'hi':''}">${fmt(kcal)}</span></div>
+            <div class="card-num"><span class="card-num-label">KH ges.</span><span class="card-num-val ${numActive[1]?'hi':''}">${fmt(kh)} g</span></div>
+            <div class="card-num"><span class="card-num-label">Netto-KH</span><span class="card-num-val ${numActive[2]?'hi':''}">${fmt(netto)} g</span></div>
+            <div class="card-num"><span class="card-num-label">Protein</span><span class="card-num-val ${numActive[3]?'hi':''}">${fmt(prot)} g</span></div>
+            <div class="card-num"><span class="card-num-label">Fett</span><span class="card-num-val ${numActive[4]?'hi':''}">${fmt(fett)} g</span></div>
+          </div></div>`;
+      }
     }
+    document.getElementById('cards-view').innerHTML = chtml;
+    document.getElementById('tbody').innerHTML = '';
   }
-  document.getElementById('cards-view').innerHTML = chtml;
 }
 
 function sortBy(col) {
@@ -738,6 +746,10 @@ function resetAll() {
   }
   render();
 }
+
+function debounce(fn, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; }
+const renderDebounced = debounce(render, 150);
+window.addEventListener('resize', debounce(render, 200));
 
 render();
 </script>
